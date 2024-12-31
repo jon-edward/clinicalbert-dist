@@ -13,10 +13,10 @@ def build():
     if OUT_DIR.exists():
         shutil.rmtree(OUT_DIR)
 
-    model = transformers.AutoModel.from_pretrained(OUT_DIR)
+    model = transformers.AutoModel.from_pretrained(MODEL_IDENT)
     model.save_pretrained(OUT_DIR)
 
-    tokenizer = transformers.AutoTokenizer.from_pretrained(OUT_DIR)
+    tokenizer = transformers.AutoTokenizer.from_pretrained(MODEL_IDENT)
     tokenizer.save_pretrained(OUT_DIR)
 
     shutil.make_archive(OUT_DIR.name, "zip", OUT_DIR)
