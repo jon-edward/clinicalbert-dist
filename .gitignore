@@ -164,5 +164,4 @@ cython_debug/
 *_wheels/
 *_wheels.zip
 
-bio_clinicalbert-model*
-bio_clinicalbert-tokenizer*
+bio_clinicalbert*
