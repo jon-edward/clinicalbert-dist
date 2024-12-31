@@ -1,0 +1,31 @@
+name: Build model and tokenizer
+
+on:
+    push:
+        tags:
+            - "v*"
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v2
+
+            - name: Set up Python
+              uses: actions/setup-python@v5
+              with:
+                  python-version: '3.10'
+
+            - name: Build model and tokenizer
+              run: |
+                  python -m pip install --upgrade pip
+                  python -m pip install -r requirements.txt
+                  python build.py
+
+            - name: Upload model and tokenizer
+              uses: softprops/action-gh-release@v2
+              with:
+                  files: |
+                    bio_clinicalbert-model.zip
+                    bio_clinicalbert-tokenizer.zip
