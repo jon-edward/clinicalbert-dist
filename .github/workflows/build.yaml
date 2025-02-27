@@ -28,4 +28,4 @@ jobs:
         with:
           files: |
             bio_clinicalbert.zip
-            bio_clinicalbert_qa.zip
+            distilroberta-emrqa_msquad-squad_v2.zip
