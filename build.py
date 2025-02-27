@@ -7,7 +7,7 @@ out_root = pathlib.Path(__file__).parent
 
 models = [
     ("emilyalsentzer/Bio_ClinicalBERT", out_root / "bio_clinicalbert", transformers.AutoModel),
-    ("jon-t/Bio_ClinicalBERT_QA", out_root / "bio_clinicalbert_qa", transformers.AutoModelForQuestionAnswering),
+    ("jon-t/distilroberta-emrqa_msquad-squad_v2", out_root / "distilroberta-emrqa_msquad-squad_v2", transformers.AutoModelForQuestionAnswering),
 ]
 
 
