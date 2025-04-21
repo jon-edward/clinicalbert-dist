@@ -27,5 +27,5 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           files: |
-            bio-mqa.zip
+            pubmedbert-base-embeddings.zip
             distilroberta-emrqa_msquad-squad_v2.zip
