@@ -1,13 +1,15 @@
 import pathlib
 import shutil
 
+import sentence_transformers
 import transformers
 
 out_root = pathlib.Path(__file__).parent
 
+
+
 models = [
-    ("NeuML/pubmedbert-base-embeddings", out_root / "pubmedbert-base-embeddings", transformers.AutoModel),
-    ("jon-t/distilroberta-emrqa_msquad-squad_v2", out_root / "distilroberta-emrqa_msquad-squad_v2", transformers.AutoModelForQuestionAnswering),
+    ("NeuML/pubmedbert-base-embeddings", out_root / "pubmedbert-base-embeddings", sentence_transformers.SentenceTransformer),
 ]
 
 
@@ -15,13 +17,10 @@ def build():
     for model_ident, out_dir, model_type in models:
         if out_dir.exists():
             shutil.rmtree(out_dir)
-
-        model = model_type.from_pretrained(model_ident)
-        model.save_pretrained(out_dir)
-
-        tokenizer = transformers.AutoTokenizer.from_pretrained(model_ident)
-        tokenizer.save_pretrained(out_dir)
-
+        
+        model = model_type(model_ident)
+        model.save(out_dir)
+        
         shutil.make_archive(out_dir.name, "zip", out_dir)
 
 if __name__ == "__main__":
