@@ -6,7 +6,7 @@ import transformers
 out_root = pathlib.Path(__file__).parent
 
 models = [
-    ("jon-t/bio-mqa", out_root / "bio-mqa", transformers.AutoModelForMultipleChoice),
+    ("NeuML/pubmedbert-base-embeddings", out_root / "pubmedbert-base-embeddings", transformers.AutoModel),
     ("jon-t/distilroberta-emrqa_msquad-squad_v2", out_root / "distilroberta-emrqa_msquad-squad_v2", transformers.AutoModelForQuestionAnswering),
 ]
 
