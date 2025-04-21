@@ -2,7 +2,6 @@ import pathlib
 import shutil
 
 import sentence_transformers
-import transformers
 
 out_root = pathlib.Path(__file__).parent
 
