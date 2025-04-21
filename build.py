@@ -18,7 +18,7 @@ def build():
             shutil.rmtree(out_dir)
         
         model = model_type(model_ident)
-        model.save(out_dir)
+        model.save(str(out_dir))
         
         shutil.make_archive(out_dir.name, "zip", out_dir)
 
